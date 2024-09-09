@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const userRouter = require('./routers/userRouter');
+const postRouter = require('./routers/postRouter');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -14,6 +15,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use('/user', userRouter);
+app.use('/post', postRouter);
 
 app.get('/', (req, res) => {
     res.send('Welcome to the workshop demo');
